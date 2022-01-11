@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\kueper_b\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\kueper_b\\.nuget\\packages"
+    ]
+  }
+}
