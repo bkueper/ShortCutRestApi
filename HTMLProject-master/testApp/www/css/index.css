@@ -1,0 +1,220 @@
+body {
+    background: ;
+    padding: 0px;
+  }
+  .app {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  #header,
+  #footer {
+    width: 100%;
+    height: 12%;
+    background-color: rgb(0, 150, 136);
+  }
+  #header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  #nav {
+    width: 20%;
+    height: 100%;
+    background-color: ;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  
+    background-color: ;
+  }
+  #nav > p {
+    font-size: 2em;
+    padding-left: 10%;
+  }
+  
+  .heading {
+    width: 80%;
+    background-color: ;
+    font-size: 2em;
+    padding-right: 3%;
+    display: flex;
+    justify-content: center;
+    color: white;
+  }
+  #content {
+    width: 100%;
+    background-color: whitesmoke;
+    height: 100%;
+    /*    display: flex;
+      align-items: center;
+      justify-content: center;*/
+  }
+  #footer {
+    display: flex;
+  }
+  
+  #footer > div:nth-child(1) {
+    width: 33.3%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+  }
+  
+  #footer > div:nth-child(2) {
+    width: 33.3%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    background-color: rgb(225, 193, 5);
+    font-family: sans-serif;
+  }
+  #footer > div:nth-child(3) {
+    width: 33.3%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+  }
+  /*---------navigation _ open ---------------*/
+  .nav_open {
+    width: 80%;
+    height: 96%;
+    background-color: ;
+    position: absolute;
+    z-index: 2;
+    transition-duration: 0.5s;
+    left: -80%;
+    background: linear-gradient(
+      to right,
+      #7dc57c 0% 16.25%,
+      #1295c9 16.25% 32.5%,
+      #815874 32.5% 48.75%,
+      #fada58 48.75% 65%,
+      #e15554 65% 81.25%,
+      #ff8000 81.25% 100%
+    );
+  }
+  .nav_open_heading {
+    width: 96%;
+    height: 22%;
+    background-color: rgb(0, 150, 136);
+    padding: 2%;
+  }
+  .nav_open_content {
+    width: 100%;
+    height: 80%;
+    background-color: whitesmoke;
+    position: relative;
+  }
+  
+  .nav_open_content_header {
+    width: 100%;
+    height: 80%;
+    background-color: whitesmoke;
+  }
+  .nav_open_content_footer {
+    width: 100%;
+    height: 20%;
+    background-color: rgb(0, 150, 136);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .color_mode {
+    width: 50px;
+    height: 20px;
+    -webkit-appearance: none;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: inset 0px 0px 2px white;
+    outline: none;
+  }
+  .color_mode:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #03a9f4;
+    border-radius: 50%;
+  }
+  .color_mode:checked:before {
+    content: "";
+    position: absolute;
+    background-color: ;
+    left: 40px;
+  }
+  .color_mode:checked {
+    background-color: #424242;
+  }
+  .previous {
+    transform: rotate(180deg);
+    z-index: 1;
+  }
+  #close {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: courier;
+    transform: rotate(180deg);
+  }
+  .logo {
+    width: 80px;
+    height: 80px;
+    background-image: url("https://cdn.glitch.com/8da15bd9-8c51-480d-9656-488ffaf41657%2Fboy.png?v=1622255847382");
+    background-size: 120%;
+    background-position: center center;
+    border-radius: 50%;
+    /* margin-top:15px; */
+    border: 3px solid lightgreen;
+    box-shadow: inset 0px 0px 3px white;
+  }
+  .name {
+    font-family: sans-serif;
+    color: red;
+    margin-left: 3px;
+    font-weight: bold;
+    text-shadow: 1px 1px white;
+  }
+  #content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+  }
+  .count {
+    width: 100px;
+    height: 50px;
+    font-size: 1.5em;
+    background: #2993df;
+    outline: none;
+    border: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bolder;
+    color: white;
+    box-shadow: 0px 0px 4px black;
+  }
+  .count:active {
+    box-shadow: inset 0px 0px 4px black;
+  }
+  .display {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.5em;
+    color: #2993df;
+  }
+  a {
+    text-decoration: none;
+  }
