@@ -1,9 +1,10 @@
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShortCutApi.Data;
 using ShortCutApi.dtos;
 using ShortCutApi.Models;
-
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 namespace ShortCutApi.Controllers
 {
     [ApiController]
@@ -16,6 +17,7 @@ namespace ShortCutApi.Controllers
         {
             _db = context;
         }
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost]
         public IActionResult CreateCustomer(Customer customer){
             _db.Customers.Add(customer);
@@ -75,53 +77,5 @@ namespace ShortCutApi.Controllers
 
             return Ok("Deleted Machine Successfully");
         }
-        /*
-        [HttpGet("{id}")]
-        public async Task<ActionResult<CustomerRepository>> GetCustomer(int id){
-            var customer = await _customerRepository.Get(id);
-            if(customer == null)
-                return NotFound();
-
-            return Ok(customer);
-        }
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<CustomerRepository>>> GetCustomers(){
-            var customers = await _customerRepository.GetAll();
-            return Ok(customers);
-        }
-
-        [HttpPost]
-        public async Task<ActionResult> CreateMachine(CreateCustomerDto createCustomerDto){
-            Customer customer = new()
-            {
-                Name = createCustomerDto.Name,
-                phonenumber = createCustomerDto.phonenumber,
-                EMail = createCustomerDto.EMail,
-                Adress = createCustomerDto.Adress
-            };
-
-            await _customerRepository.Add(customer);
-            return Ok();
-        }
-        [HttpDelete]
-        public async Task<ActionResult> DeleteCustomer(int id){
-            await _customerRepository.Delete(id);
-            return Ok();
-        }
-        [HttpPut]
-        public async Task<ActionResult> UpdateCustomer(int id, UpdateCustomerDto updateCustomerDto){
-            Customer customer = new()
-            {   
-                CustomerId = id,
-                Name = updateCustomerDto.Name,
-                phonenumber = updateCustomerDto.phonenumber,
-                EMail = updateCustomerDto.EMail,
-                Adress = updateCustomerDto.Adress
-            };
-            await _customerRepository.Update(customer);
-
-            return Ok();
-        }
-        */
     }
 }

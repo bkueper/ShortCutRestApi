@@ -67,6 +67,45 @@ namespace ShortCutApi.Controllers
                 Success = false
         });
     }
+    [HttpPost]
+    [Route("Login")]
+    public async Task<IActionResult> Login([FromBody] UserLoginRequestDto user){
+        if(ModelState.IsValid){
+            var existingUser = await _userManager.FindByEmailAsync(user.Email);
+        
+            if(existingUser == null){        
+                return BadRequest(new RegistrationResponseDto(){
+                        Errors = new List<string>(){
+                            "Invalid login request"
+                        },
+                        Success = false
+                });
+            
+        }
+        var isCorrect = await _userManager.CheckPasswordAsync(existingUser, user.Password);
+
+        if(!isCorrect){
+            return BadRequest(new RegistrationResponseDto(){
+                        Errors = new List<string>(){
+                            "Invalid login request"
+                        },
+                        Success = false
+                });
+        }
+        var jwtToken = GenerateJwtToken(existingUser);
+
+        return Ok(new RegistrationResponseDto(){
+            Success = true,
+            Token = jwtToken
+        });
+    }
+    return BadRequest(new RegistrationResponseDto(){
+                        Errors = new List<string>(){
+                            "Invalid login request"
+                        },
+                        Success = false
+                });
+    }
     private string GenerateJwtToken(IdentityUser user){
         var jwtTokenHandler = new JwtSecurityTokenHandler();
 
